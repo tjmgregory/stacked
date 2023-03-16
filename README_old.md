@@ -547,9 +547,12 @@ class BusyExampleViewModel extends BaseViewModel {
 
 Then you can check the busy state using that busy key and calling `viewModel.busy(BusyObjectKey)`. The key should be any unique value that won't change with the busy state of the object. In the example mentioned above you can use the id of each of the cart products to indicate if it's busy or not. This way you can show a busy state for each of them individually.
 
+When using an `objectKey`, be careful to not mistakenly use a null string/object. Doing so will lead to the busy state being applied to the ViewModel.
+
 ### Error Handling
 
-The same way that the busy state is set you also get an error state. When you use one of the specialty `ViewModels` or the future helper functions, `runBusyFuture` or `runErrorFuture`, stacked will store the exception thrown in the `ViewModel` for you to use. It will follow the same rules as the busy above and will assign the exception to the `ViewModel` or the key passed in. Lets look at some code.
+The same way that the busy state is set you also get an error state. When you use one of the specialty `ViewModels` or the future helper functions, `runBusyFuture` or `runErrorFuture`, 
+thrown in the `ViewModel` for you to use. It will follow the same rules as the busy above and will assign the exception to the `ViewModel` or the key passed in. Lets look at some code.
 
 ```dart
 class ErrorExampleViewModel extends BaseViewModel {
